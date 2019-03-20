@@ -15,7 +15,7 @@ $(document).ready(function(){
 		"session_key" : session_key
 	};
 	var generation_options = {
-		"feide_username" : feide_username,
+		"feide_username" : feide_username, // TODO: Remove fields that can be gotten from Feide
 		"full_name" : name,
 		"email" : email,
 		"device_type" : description,
