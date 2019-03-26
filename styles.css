@@ -21,10 +21,9 @@ input[type=text], select {
     box-sizing: border-box;
 }
   
-input[type=submit] {
+button {
     width: 100%;
     background-color: #d3d3d3;
-    color: black;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
@@ -38,6 +37,7 @@ input[type=submit]:hover {
     background-color: #cccccc;
 }
 .container {
+	color: #333333;
     width: 744px;
     height: auto;
     background-color: #ffffff;

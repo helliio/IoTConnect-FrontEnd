@@ -10,17 +10,15 @@
         <div class="outer">
             <h1>Velkommen, bruker</h1>
             <div class="container">
-                <form name="pskForm" id="pskForm" action="">
                 <label for="email">E-postadresse</label>
                 <input type="text" id="email" name="email">
-                <label for="desc" id="desc_label">Kort beskrivelse av enheten</label>
-                <input type="text" id="desc" name="description">
+                <label for="description" id="desc_label">Kort beskrivelse av enheten</label>
+                <input type="text" id="description" name="description">
                 <label class="check_container"> Send passord via e-post
-                    <input type="checkbox" id="send-email" name="send-email" value="1">
+                    <input type="checkbox" id="send-email" name="send-email" checked>
                     <span class="checkmark"></span>
                 </label>
-                <input type="submit" value="Hent passord">
-                </form>
+				<button>Hent passord</button>
             </div>
         </div>
     </body>
