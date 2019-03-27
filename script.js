@@ -1,7 +1,3 @@
-window.onload = function () {
-
-};
-
 function sendData() {
 	var url_vars = getUrlVars()
 	// authentication_data
