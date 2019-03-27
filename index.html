@@ -10,14 +10,14 @@
             <h1 id="welcomeText">Velkommen, bruker</h1>
             <div class="container">
                 <label for="email">E-postadresse</label>
-                <input type="text" id="email" name="email">
+                <input type="text" id="email" name="email" onchange="testEmail()">
                 <label for="description" id="desc_label">Kort beskrivelse av enheten</label>
-                <input type="text" id="description" name="description">
+                <input type="text" id="description" name="description" onkeyup="testDescription()" maxlength="50">
                 <label class="check_container"> Send passord via e-post
                     <input type="checkbox" id="send-email" name="send-email" checked>
                     <span class="checkmark"></span>
                 </label>
-				<button onclick="sendData();" id="sendBtn">Hent passord</button>
+				<button onclick="sendData();" id="sendBtn" disabled>Hent passord</button>
             </div>
         </div>
 		<script src="prepare.js"></script>
