@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 function createCORSRequest(method, url) {
   var xhr = new XMLHttpRequest();
   if ("withCredentials" in xhr) {
@@ -24,7 +22,6 @@ function createCORSRequest(method, url) {
   return xhr;
 }
 
->>>>>>> 57936a2... Remove empty onload function
 function sendData() {
 	var url_vars = getUrlVars()
 	// authentication_data
