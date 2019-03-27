@@ -1,5 +1,8 @@
-$(document).ready(function(){
-  $("button").click(function(){
+window.onload = function () {
+
+};
+
+function sendData() {
 	var url_vars = getUrlVars()
 	// authentication_data
 	var session_key = url_vars['session_key']
@@ -37,8 +40,7 @@ $(document).ready(function(){
 		}
 	};
 	xhr.send(JSON.stringify(data));
-  });
-});
+}
 
 
 function getUrlVars()

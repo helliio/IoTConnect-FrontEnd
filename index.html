@@ -3,12 +3,11 @@
     <head>
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="styles_check.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
         <script src="script.js"></script>
     </head>
     <body>
         <div class="outer">
-            <h1>Velkommen, bruker</h1>
+            <h1 id="welcomeText">Velkommen, bruker</h1>
             <div class="container">
                 <label for="email">E-postadresse</label>
                 <input type="text" id="email" name="email">
@@ -18,8 +17,9 @@
                     <input type="checkbox" id="send-email" name="send-email" checked>
                     <span class="checkmark"></span>
                 </label>
-				<button>Hent passord</button>
+				<button onclick="sendData();" id="sendBtn">Hent passord</button>
             </div>
         </div>
+		<script src="prepare.js"></script>
     </body>
 </html>
