@@ -1,12 +1,11 @@
 function sendData() {
-	var url_vars = getUrlVars()
+	var url_vars = getUrlVars();
 	// authentication_data
-	var session_key = url_vars['session_key']
+	var session_key = url_vars['session_key'];
 	// generation_options
 	var email = document.getElementById("email").value;
     var description = document.getElementById("description").value;
-    var deliver_by_email = document.getElementById("send-email").checked;
-	
+	var deliver_by_email = document.getElementById("send-email").checked;
 	// Define dicts
 	var authentication_data = {
 		"session_key" : session_key
@@ -38,7 +37,6 @@ function sendData() {
 	xhr.send(JSON.stringify(data));
 }
 
-
 function getUrlVars()
 {
     var vars = [], hash;
@@ -50,4 +48,43 @@ function getUrlVars()
         vars[hash[0]] = hash[1];
     }
     return vars;
+}
+
+function testEmail(){
+	if (!emailIsValid()) {
+		document.getElementById("email").style.border = "1px solid red";
+		document.getElementById("sendBtn").disabled = true;
+	}
+	else {
+		document.getElementById("email").style.border= "1px solid white";
+		if (descriptionIsValid()){
+			document.getElementById("sendBtn").disabled = false;
+		}	
+	}
+}
+
+function testDescription(){
+	if (!descriptionIsValid()) {
+		document.getElementById("description").style.border = "1px solid red";
+		document.getElementById("sendBtn").disabled = true;
+	}
+	else {
+		document.getElementById("description").style.border= "1px solid white";
+		if (emailIsValid()){
+			document.getElementById("sendBtn").disabled = false;
+		}
+	}
+}
+
+function emailIsValid() {
+	var email = document.getElementById("email").value;
+	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)
+}
+
+function descriptionIsValid(){
+	var desc = document.getElementById("description").value;
+	if (desc.length < 1){
+		return false;
+	}
+	return true;
 }
