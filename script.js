@@ -23,6 +23,7 @@ function createCORSRequest(method, url) {
 }
 
 function sendData() {
+	loading();
 	var url_vars = getUrlVars();
 	// authentication_data
 	var session_key = url_vars['session_key'];
@@ -55,7 +56,8 @@ function sendData() {
 
 	xhr.onload = function() {
 		if (xhr.status === 201) {
-			alert(xhr.responseText);
+			PSKScreen(xhr.responseText);
+			//alert(xhr.responseText);
 		}
 		else if (xhr.status == 400) {
 			alert('You messed up');
@@ -152,11 +154,13 @@ function loading() {
 	pskScreen.style.display = "none";
 }
 
-function PSKScreen() {
+function PSKScreen(psk) {
 	var form = document.getElementById("outerForm");
 	form.style.display = "none";
 	var loader = document.getElementById("loader")
 	loader.style.display = "none"
 	var pskScreen = document.getElementById("pskScreen");
 	pskScreen.style.display = "block";
+	var psk = document.getElementById("psk");
+	psk.value=psk;	
 }
