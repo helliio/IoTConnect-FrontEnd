@@ -154,7 +154,7 @@ function loading() {
 	pskScreen.style.display = "none";
 }
 
-function PSKScreen(psk) {
+function PSKScreen(password) {
 	var form = document.getElementById("outerForm");
 	form.style.display = "none";
 	var loader = document.getElementById("loader")
@@ -162,5 +162,5 @@ function PSKScreen(psk) {
 	var pskScreen = document.getElementById("pskScreen");
 	pskScreen.style.display = "block";
 	var psk = document.getElementById("psk");
-	psk.value=psk;	
+	psk.value=password.replace(/['"]+/g, '');
 }
