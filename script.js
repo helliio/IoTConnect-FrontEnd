@@ -121,3 +121,42 @@ function descriptionIsValid(){
 	}
 	return true;
 }
+
+function showPSK() {
+	var psk = document.getElementById("psk");
+	var pskBtn = document.getElementById("showPsk");
+  if (psk.type === "password") {
+		psk.type = "text";
+		pskBtn.innerHTML = "Skjul passord";
+  } else {
+		psk.type = "password";
+		pskBtn.innerHTML = "Vis passord";
+  }
+}
+
+function formScreen() {
+	var form = document.getElementById("outerForm");
+	form.style.display = "block";
+	var loader = document.getElementById("loader")
+	loader.style.display = "none"
+	var pskScreen = document.getElementById("pskScreen");
+	pskScreen.style.display = "none";
+}
+
+function loading() {
+	var form = document.getElementById("outerForm");
+	form.style.display = "none";
+	var loader = document.getElementById("loader")
+	loader.style.display = "block"
+	var pskScreen = document.getElementById("pskScreen");
+	pskScreen.style.display = "none";
+}
+
+function PSKScreen() {
+	var form = document.getElementById("outerForm");
+	form.style.display = "none";
+	var loader = document.getElementById("loader")
+	loader.style.display = "none"
+	var pskScreen = document.getElementById("pskScreen");
+	pskScreen.style.display = "block";
+}
