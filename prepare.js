@@ -3,7 +3,7 @@ var username = getUrlVars()['name'];
 
 if (username == null) {
 	// HTTP redirect
-	window.location = backendUrl + "/connect/";
+	window.location.href = backendUrl + "/connect/";
 };
 
 // Set welcome text
