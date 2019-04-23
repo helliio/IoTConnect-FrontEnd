@@ -332,3 +332,7 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+
+# Ignore all underscored files
+_*
+_locals.js
