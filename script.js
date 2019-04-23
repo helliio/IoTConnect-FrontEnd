@@ -22,7 +22,7 @@ function sendData() {
 	}
 	
 	var xhr = new XMLHttpRequest();
-	xhr.open('POST', 'http://127.0.0.1:8000/connect/', true);
+	xhr.open('POST', backendUrl + "/connect/", true);
 	xhr.setRequestHeader('Content-Type', 'application/json');
 	xhr.withCredentials = true;
 

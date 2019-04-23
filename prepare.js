@@ -1,3 +1,16 @@
+// Get username from URL parameters
+var username = getUrlVars()['name'];
+
+if (username == null) {
+	// HTTP redirect
+	window.location.href = backendUrl + "/connect/";
+};
+
+// Set welcome text
+var welcomeHeader = document.getElementById("welcomeText");
+welcomeHeader.innerHTML = "Velkommen, " + username;
+
+// Add event listeners to input elements
 var inputs = document.getElementsByTagName("input");
 for (i = 0; i < inputs.length; i++) {
 	inputs[i].addEventListener("keyup", function(event) {
@@ -7,7 +20,3 @@ for (i = 0; i < inputs.length; i++) {
 		}
 	});
 }
-
-var welcomeHeader = document.getElementById("welcomeText");
-var userName = getUrlVars()['name'];
-welcomeHeader.innerHTML = "Velkommen, " + userName;
