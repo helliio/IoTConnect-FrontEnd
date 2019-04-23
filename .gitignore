@@ -335,3 +335,4 @@ ASALocalRun/
 
 # Ignore all underscored files
 _*
+_locals.js
