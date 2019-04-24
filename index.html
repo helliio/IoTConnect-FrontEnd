@@ -13,7 +13,7 @@
             <h1 id="welcomeText">Velkommen,</h1>
             <div class="containerForm" id="containerForm">
                 <label for="description" id="desc_label">Kort beskrivelse av enheten</label>
-                <input type="text" class="formInput" id="description" name="description" onkeyup="testDescription()" maxlength="50">
+                <input type="text" class="formInput" id="description" name="description" onkeyup="setDescriptionColors()" maxlength="50">
                 <label class="check_container"> Send passord via e-post
                     <input type="checkbox" id="send-email" name="send-email" checked>
                     <span class="checkmark"></span>
@@ -38,7 +38,7 @@
                         <input type="password" id="psk" readonly>
                     </td>
                     <td class="lrCell"> 
-                        <a onclick="showPSK();" id="showPsk">Vis passord</a>
+                        <a onclick="togglePsk();" id="showPsk">Vis passord</a>
                     </td>
                 </tr>
             </table>
