@@ -4,7 +4,6 @@ function sendData() {
 	// authentication_data
 	var session_key = url_vars['session_key'];
 	// generation_options
-	var email = document.getElementById("email").value;
     var description = document.getElementById("description").value;
 	var deliver_by_email = document.getElementById("send-email").checked;
 	// Define dicts
@@ -12,7 +11,6 @@ function sendData() {
 		"session_key" : session_key
 	};
 	var generation_options = {
-		"email" : email,
 		"device_type" : description,
 		"deliver_by_email" : deliver_by_email,
 	};
@@ -36,6 +34,9 @@ function sendData() {
 		else if (xhr.status == 500) {
 			alert('Unexpected error')
 		}
+		else if (xhr.status == 403) {
+			window.location.href = backendUrl + "/connect/"
+		}
 	};
 	xhr.onerror = function() {
 		alert('Unexpected error. Please check your browser.');
@@ -56,19 +57,6 @@ function getUrlVars()
     return vars;
 }
 
-function testEmail(){
-	if (!emailIsValid()) {
-		document.getElementById("email").style.border = "1px solid red";
-		document.getElementById("sendBtn").disabled = true;
-	}
-	else {
-		document.getElementById("email").style.border= "1px solid white";
-		if (descriptionIsValid()){
-			document.getElementById("sendBtn").disabled = false;
-		}	
-	}
-}
-
 function testDescription(){
 	if (!descriptionIsValid()) {
 		document.getElementById("description").style.border = "1px solid red";
@@ -76,15 +64,8 @@ function testDescription(){
 	}
 	else {
 		document.getElementById("description").style.border= "1px solid white";
-		if (emailIsValid()){
-			document.getElementById("sendBtn").disabled = false;
-		}
+		document.getElementById("sendBtn").disabled = false;
 	}
-}
-
-function emailIsValid() {
-	var email = document.getElementById("email").value;
-	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)
 }
 
 function descriptionIsValid(){
