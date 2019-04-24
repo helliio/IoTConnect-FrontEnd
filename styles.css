@@ -6,6 +6,18 @@ h1 {
 	margin-bottom: 20px;
 }
 
+@media only screen and (max-width: 844px) {
+    h1 {
+        font-size: 45px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 35px;
+    }
+}
+
 body {
     /*background-image: linear-gradient(to bottom right, rgb(0, 117, 148), rgb(0, 73, 94));*/
     background-color: rgb(0, 73, 94);
@@ -44,7 +56,6 @@ input[type=submit]:hover {
 }
 .containerForm {
 	color: #333333;
-    width: 744px;
     height: auto;
     background-color: #ffffff;
     padding: 50px;
@@ -53,6 +64,7 @@ input[type=submit]:hover {
 }
 .outer {
     width: 844px;
+    max-width: 100%;
     height: auto;
     top: 50%;
     left: 50%;
