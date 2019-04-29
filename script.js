@@ -105,9 +105,11 @@ function togglePsk() {
 	if (pskTextField.type === "password") {
 		pskTextField.type = "text";
 		showPskButton.innerHTML = "Skjul passord";
+		showPskButton.title = "Skjul passordet";
 	} else {
 		pskTextField.type = "password";
 		showPskButton.innerHTML = "Vis passord";
+		showPskButton.title = "Vis passordet";
 	}
 }
 
