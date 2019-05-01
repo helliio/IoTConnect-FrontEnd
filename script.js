@@ -7,7 +7,6 @@ var form = document.getElementById("outerForm");
 var loader = document.getElementById("loader");
 var pskScreen = document.getElementById("pskScreen");
 
-
 function sendData() {
 	loading();
 	// Get query strings
@@ -45,11 +44,11 @@ function sendData() {
 			showPskScreen(xhr.responseText);
 		}
 		else if (xhr.status == 400) {
-			alert('You messed up');
+			showAlert('You messed up');
 			showFormScreen();
 		}
 		else if (xhr.status == 500) {
-			alert('Unexpected error')
+			showAlert('Unexpected error')
 			showFormScreen();
 		}
 		else if (xhr.status == 403) {
@@ -59,7 +58,7 @@ function sendData() {
 
 	// Handle request error
 	xhr.onerror = function() {
-		alert('Unexpected error. Please check your browser.');
+		showAlert('Unexpected error. Please check your browser.');
 	};
 
 	// Send the request
@@ -134,4 +133,11 @@ function showFormScreen() {
 
 function clearPsk() {
 	pskTextField.value = "expired";
+}
+
+function showAlert(msg) {
+	var alertBox = document.getElementById("alertBox");
+	var alertMsg = document.getElementById("alertMsg");
+	alertMsg.innerText = msg
+	alertBox.style.display = "block";
 }
