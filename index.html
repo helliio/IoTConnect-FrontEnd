@@ -1,53 +1,53 @@
 <!DOCTYPE html>
 <html lang="no">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="styles.css">
-        <link rel="stylesheet" href="styles_check.css">
-        <script type="text/javascript" src="_locals.js"></script>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="./css/styles.css">
+		<link rel="stylesheet" href="./css/styles_check.css">
+		<script type="text/javascript" src="./js/_locals.js"></script>
 		<title>Koble til en IoT-enhet</title>
-    </head>
-    <body>
-        <div class="alertBox" id="alertBox">
-            <label id="alertMsg">text</label>
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-        </div> 
-        <div class="outer" id="outerForm">
-            <h1 id="welcomeText">Velkommen,</h1>
-            <div class="containerForm" id="containerForm">
-                <label for="description" id="desc_label">Kort beskrivelse av enheten</label>
-                <input type="text" class="formInput" id="description" name="description" onkeyup="setDescriptionColors()" maxlength="50">
-                <label class="check_container"> Send passord via e-post
-                    <input type="checkbox" id="send-email" name="send-email" checked>
-                    <span class="checkmark"></span>
-                </label>
+	</head>
+	<body>
+		<div class="alertBox" id="alertBox">
+			<label id="alertMsg">text</label>
+			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+		</div>
+		<div class="outer" id="outerForm">
+			<h1 id="welcomeText">Velkommen,</h1>
+			<div class="containerForm" id="containerForm">
+				<label for="description" id="desc_label">Kort beskrivelse av enheten</label>
+				<input type="text" class="formInput" id="description" name="description" onkeyup="setDescriptionColors()" maxlength="50">
+				<label class="check_container"> Send passord via e-post
+					<input type="checkbox" id="send-email" name="send-email" checked>
+					<span class="checkmark"></span>
+				</label>
 				<button onclick="sendData();" id="sendBtn" disabled>Hent passord</button>
-            </div>
-        </div>
-        <div class="loader" id="loader"></div>
-        <div id="pskScreen">
-            <table id="pskTable">
-                <tr>
-                    <td class="lrCell"></td>
-                    <td>
-                        <h1 id="dittPassord">Ditt passord:</h1>
-                    </td>
-                    <td class="lrCell"> 
-                    </td>
-                </tr>
-                <tr>
-                    <td class="lrCell"></td>
-                    <td>
-                        <input type="password" id="psk" readonly>
-                    </td>
-                    <td class="lrCell"> 
-                        <a onclick="togglePsk();" title="Vis passordet" id="showPsk">Vis passord</a>
-                    </td>
-                </tr>
-            </table>
-        </div>
-		<script type="text/javascript" src="script.js"></script>
-		<script src="prepare.js"></script>
-    </body>
+			</div>
+		</div>
+		<div class="loader" id="loader"></div>
+		<div id="pskScreen">
+			<table id="pskTable">
+				<tr>
+					<td class="lrCell"></td>
+					<td>
+						<h1 id="dittPassord">Ditt passord:</h1>
+					</td>
+					<td class="lrCell">
+					</td>
+				</tr>
+				<tr>
+					<td class="lrCell"></td>
+					<td>
+						<input type="password" id="psk" readonly>
+					</td>
+					<td class="lrCell">
+						<a onclick="togglePsk();" title="Vis passordet" id="showPsk">Vis passord</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<script type="text/javascript" src="./js/script.js"></script>
+		<script type="text/javascript" src="./js/prepare.js"></script>
+	</body>
 </html>
