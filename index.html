@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="no">
     <head>
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="styles_check.css">
         <script type="text/javascript" src="_locals.js"></script>
-        <script type="text/javascript" src="script.js"></script>
 		<title>Koble til en IoT-enhet</title>
     </head>
     <body>
+        <div class="alertBox" id="alertBox">
+            <label id="alertMsg">text</label>
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        </div> 
         <div class="outer" id="outerForm">
             <h1 id="welcomeText">Velkommen,</h1>
             <div class="containerForm" id="containerForm">
@@ -43,6 +47,7 @@
                 </tr>
             </table>
         </div>
+		<script type="text/javascript" src="script.js"></script>
 		<script src="prepare.js"></script>
     </body>
 </html>

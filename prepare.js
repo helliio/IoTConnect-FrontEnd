@@ -6,6 +6,9 @@ var showPskButton = document.getElementById("showPsk");
 var form = document.getElementById("outerForm");
 var loader = document.getElementById("loader");
 var pskScreen = document.getElementById("pskScreen");
+var alertBox = document.getElementById("alertBox");
+var alertMsg = document.getElementById("alertMsg");
+var nbAlerts = 0;  // The number of alerts triggered
 
 // Get username from URL parameters
 var username = getUrlVars()['name'];
