@@ -20,7 +20,7 @@ if (username == null) {
 
 // Set welcome text
 var welcomeHeader = document.getElementById("welcomeText");
-welcomeHeader.innerHTML = "Velkommen, " + username;
+welcomeHeader.innerHTML = "Velkommen, " + decodeURIComponent(username);
 
 // Add event listeners to input elements
 var inputs = document.getElementsByTagName("input");
