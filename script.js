@@ -1,12 +1,3 @@
-var descriptionInput = document.getElementById("description");
-var deliverByEmailInput = document.getElementById("send-email");
-var submitButton = document.getElementById("sendBtn");
-var pskTextField = document.getElementById("psk");
-var showPskButton = document.getElementById("showPsk");
-var form = document.getElementById("outerForm");
-var loader = document.getElementById("loader");
-var pskScreen = document.getElementById("pskScreen");
-
 function sendData() {
 	loading();
 	// Get query strings
@@ -30,7 +21,7 @@ function sendData() {
 	var data = {
 		authentication_data: JSON.stringify(authentication_data),
 		generation_options: JSON.stringify(generation_options)
-	}
+	};
 
 	// Create request
 	var xhr = new XMLHttpRequest();
@@ -38,39 +29,52 @@ function sendData() {
 	xhr.setRequestHeader('Content-Type', 'application/json');
 	xhr.withCredentials = true;
 
-	// Handle request responses
+	// Handle request responses (ordered by likelihood for efficiency)
 	xhr.onload = function() {
 		if (xhr.status === 201) {
+			// Created (success)
 			showPskScreen(xhr.responseText);
 		}
-		else if (xhr.status == 400) {
-			showAlert('You messed up');
-			showFormScreen();
+		else if (xhr.status == 401) {
+			// Unauthorized
+			window.location.href = backendUrl + "/connect/";
 		}
 		else if (xhr.status == 500) {
-			showAlert('Unexpected error')
+			// Internal server error
+			showAlert('Det har oppstått en uventet feil. Vennligst prøv igjen.');
+			showFormScreen();
+		}
+		else if (xhr.status == 400) {
+			// Bad request
+			showAlert('Noe er galt. Vennligst bekreft at e-postadressen er riktig.');
 			showFormScreen();
 		}
 		else if (xhr.status == 403) {
-			window.location.href = backendUrl + "/connect/"
+			// Forbidden (too fast)
+			showAlert('Du etterspør passord for hyppig. Vennligst prøv igjen senere.');
+			showFormScreen();
+		}
+		else if (xhr.status == 408 || xhr.status == 404 || xhr.status == 503) {
+			// Timed out, not found, or unavailable (HiveManager or Dataporten not responding)
+			showAlert('Tjenesten er midlertidig utilgjengelig. Vi beklager dette.');
+			showFormScreen();
 		}
 	};
 
-	// Handle request error
+	// Handle request error (likely a browser issue)
 	xhr.onerror = function() {
-		showAlert('Unexpected error. Please check your browser.');
+		showAlert('Det har oppstått en uventet feil. Vennligst prøv en annen nettleser.');
+		showFormScreen();
 	};
 
 	// Send the request
 	xhr.send(JSON.stringify(data));
 }
 
-function getUrlVars()
-{
+function getUrlVars() {
     var vars = [], hash;
     var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-    for(var i = 0; i < hashes.length; i++)
-    {
+    for(var i = 0; i < hashes.length; i++) {
         hash = hashes[i].split('=');
         vars.push(hash[0]);
         vars[hash[0]] = hash[1];
@@ -92,11 +96,7 @@ function setDescriptionColors() {
 
 function descriptionIsValid() {
 	// Check if the inputted description is valid
-	var desc = descriptionInput.value;
-	if (desc.length < 1){
-		return false;
-	}
-	return true;
+	return (descriptionInput.value.length >= 1);
 }
 
 function togglePsk() {
@@ -112,13 +112,13 @@ function togglePsk() {
 
 function loading() {
 	form.style.display = "none";
-	loader.style.display = "block"
+	loader.style.display = "block";
 	pskScreen.style.display = "none";
 }
 
 function showPskScreen(password) {
 	form.style.display = "none";
-	loader.style.display = "none"
+	loader.style.display = "none";
 	pskScreen.style.display = "block";
 	pskTextField.value = password.replace(/['"]+/g, '');
 	// Clear the password after 5 minutes
@@ -136,8 +136,16 @@ function clearPsk() {
 }
 
 function showAlert(msg) {
-	var alertBox = document.getElementById("alertBox");
-	var alertMsg = document.getElementById("alertMsg");
-	alertMsg.innerText = msg
+	alertMsg.innerText = msg;
 	alertBox.style.display = "block";
+	nbAlerts++;
+	setTimeout(hideAlert, 15000);
+}
+
+function hideAlert() {
+	nbAlerts--;
+	// Only hide if this is the last alert
+	if (nbAlerts == 0) {
+		alertBox.style.display = "none";
+	}
 }

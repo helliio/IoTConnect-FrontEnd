@@ -172,17 +172,18 @@ label {
 }
 
 /* The alert message box */
-
 .alertBox {
     padding: 20px;
     background-color: #f44336;
     color: white;
     margin-bottom: 15px;
     display: none;
-    }
+	z-index: 1000;
+	position: relative;
+}
     
-    /* The close button */
-    .closebtn {
+/* The close button */
+.closebtn {
     margin-left: 15px;
     color: white;
     font-weight: bold;
@@ -191,9 +192,9 @@ label {
     line-height: 25px;
     cursor: pointer;
     transition: 0.3s;
-    }
+}
     
-    /* When moving the mouse over the close button */
-    .closebtn:hover {
+/* When moving the mouse over the close button */
+.closebtn:hover {
     color: black;
-    } 
+} 
