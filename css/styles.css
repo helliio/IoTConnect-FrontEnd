@@ -73,6 +73,7 @@ input[type=submit]:hover {
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 	position: absolute;
+	display: none;
 }
 
 label {
@@ -93,7 +94,7 @@ label {
 	height: 120px;
 	-webkit-animation: spin 1s linear infinite; /* Safari */
 	animation: spin 1s linear infinite;
-	display: none;
+	display: block;
 	position: absolute;
 	top:0;
 	bottom: 0;
