@@ -22,6 +22,10 @@ if (username == null) {
 var welcomeHeader = document.getElementById("welcomeText");
 welcomeHeader.innerHTML = "Velkommen, " + decodeURIComponent(username);
 
+if (username != null) {
+	showFormScreen();
+}
+
 // Add event listeners to input elements
 var inputs = document.getElementsByTagName("input");
 for (i = 0; i < inputs.length; i++) {
