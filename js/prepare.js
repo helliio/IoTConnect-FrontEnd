@@ -10,9 +10,6 @@ var alertBox = document.getElementById("alertBox");
 var alertMsg = document.getElementById("alertMsg");
 var nbAlerts = 0;  // The number of alerts triggered
 
-// Show loading
-loading();
-
 // Get username from URL parameters
 var username = getUrlVars()['name'];
 
