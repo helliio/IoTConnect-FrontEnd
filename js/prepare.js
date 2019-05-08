@@ -10,6 +10,9 @@ var alertBox = document.getElementById("alertBox");
 var alertMsg = document.getElementById("alertMsg");
 var nbAlerts = 0;  // The number of alerts triggered
 
+// Show loading
+loading();
+
 // Get username from URL parameters
 var username = getUrlVars()['name'];
 
@@ -21,6 +24,10 @@ if (username == null) {
 // Set welcome text
 var welcomeHeader = document.getElementById("welcomeText");
 welcomeHeader.innerHTML = "Velkommen, " + decodeURIComponent(username);
+
+if (username != null) {
+	showFormScreen();
+}
 
 // Add event listeners to input elements
 var inputs = document.getElementsByTagName("input");
