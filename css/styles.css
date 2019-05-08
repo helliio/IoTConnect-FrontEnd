@@ -1,0 +1,200 @@
+h1 {
+	color: white;
+	font-size: 60px;
+	font-weight: normal;
+	margin: 0;
+	margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 844px) {
+	h1 {
+		font-size: 45px;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	h1 {
+		font-size: 35px;
+	}
+}
+
+body {
+	/*background-image: linear-gradient(to bottom right, rgb(0, 117, 148), rgb(0, 73, 94));*/
+	background-color: rgb(0, 73, 94);
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.formInput {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid white;
+	background-color: #e7e7e7;
+	box-sizing: border-box;
+}
+
+#sendBtn {
+	width: 100%;
+	background-color: #d3d3d3;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	font-size: 20px;
+	font-weight: normal;
+	color: #333333;
+}
+
+button:disabled, button[disabled] {
+	cursor: default !important;
+	color: grey !important;
+}
+
+input[type=submit]:hover {
+	background-color: #cccccc;
+}
+
+.containerForm {
+	color: #333333;
+	height: auto;
+	background-color: #ffffff;
+	padding: 50px;
+	margin: auto auto;
+	box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+}
+
+.outer {
+	width: 844px;
+	max-width: 100%;
+	height: auto;
+	top: 50%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	position: absolute;
+}
+
+label {
+	font-size: 20px;
+	font-weight: normal;
+}
+
+#desc_label {
+	display: inline-block;
+	padding-top: 10px;
+}
+
+.loader {
+	border: 16px solid rgb(0, 73, 94);
+	border-radius: 50%;
+	border-top: 16px solid white;
+	width: 120px;
+	height: 120px;
+	-webkit-animation: spin 1s linear infinite; /* Safari */
+	animation: spin 1s linear infinite;
+	display: none;
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+	0% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+#pskScreen {
+	display: none;
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 600px;
+	height: 140px;
+}
+
+#psk {
+	border: 4px solid white;
+	border-radius: 15px;
+	background-color: rgb(0, 73, 94);
+	color: white;
+	width: 300px;
+	height: 40px;
+	font-size: 30px;
+	padding: 12px 20px;
+	margin: 0 auto;
+	display: block;
+	text-align: center;
+	letter-spacing: 5px;
+	font-family: 'Consolas','Courier New', Courier, monospace
+}
+
+#showPsk {
+	color: white;
+	margin-left: 10px;
+	cursor: pointer;
+	margin-top: 50px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#pskTable {
+	width: 100%;
+	height: 100%;
+}
+
+.lrCell {
+	width: 150px;
+}
+
+#dittPassord {
+	width: 350px;
+	margin: 0 auto;
+	display: block;
+	text-align: center;
+	font-size: 30pt;
+}
+
+/* The alert message box */
+.alertBox {
+	padding: 20px;
+	background-color: #f44336;
+	color: white;
+	margin-bottom: 15px;
+	display: none;
+	z-index: 1000;
+	position: relative;
+}
+
+/* The close button */
+.closebtn {
+	margin-left: 15px;
+	color: white;
+	font-weight: bold;
+	float: right;
+	font-size: 30px;
+	line-height: 25px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+	color: black;
+}
