@@ -47,8 +47,8 @@ body {
 }
 
 button:disabled, button[disabled] {
-	cursor: default;
-	color: grey;
+	cursor: default !important;
+	color: grey !important;
 }
 
 input[type=submit]:hover {
